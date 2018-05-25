@@ -11,21 +11,24 @@ export default class Dashboard extends Component {
         }
     }
     render(){
-        let mappedProducts = this.state.products.map((e, i) => {
+        console.log(this.props)
+        let mappedProducts = this.props.products.map((e, i) => {
             return (
               <div key={i}>
                 <Product
-                  product={e.item}
+                  image={e.image}
+                  name={e.name}
                   price={e.price}
-                  quantity={e.quantity}
                 />
               </div>
             )
           })
+
         return(
             <div>
-                <Product />
                 {mappedProducts}
+                <Product {...this.state}/>
+                
             </div>
         )
     }

@@ -10,8 +10,10 @@ class App extends Component {
       super();
 
       this.state = {
-        products: []
+        products: [{name: 'thing', price: 10, image: 'fnjdsan'},
+        {name: "thin2", price: 898, image: 'njdsavo'}]
       }
+      this.update = this.update.bind(this)
     }
 
     componentDidMount(){
@@ -22,12 +24,18 @@ class App extends Component {
       })
   }
 
+  update(products){
+    this.setState({
+      products: products
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <Dashboard />
-        <Form />
+        <Dashboard {...this.state}/>
+        <Form {...this.state}/>
       </div>
     );
   }

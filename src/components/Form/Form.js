@@ -6,7 +6,7 @@ export default class Form extends Component{
         super(props);
 
         this.state = {
-            products:[],
+            products: this.props.products,
             imageURL: '',
             productName: '',
             price: 0
@@ -30,7 +30,6 @@ export default class Form extends Component{
         }
         axios.post('/api/inventory', body).then((res) => {
             this.setState({
-                products: res.data,
                 imageUrl: '',
                 productName: '',
                 price: 0
